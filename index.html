@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Mobile Kodları</title>
+    <style>
+        /* FC Mobile Kodları Ana Bölüm */
+        .fc-codes-section {
+            background-color: #0b0f19;
+            padding: 40px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .fc-codes-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        /* Kod Kartları Konteyneri */
+        .codes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* RGB Çerçeveli ve 3D Efektli Kart */
+        .code-card {
+            position: relative;
+            background: #131a2b;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            z-index: 1;
+        }
+
+        /* 3D Hover Etkisi */
+        .code-card:hover {
+            transform: perspective(1000px) rotateX(3deg) rotateY(-3deg) translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        /* RGB Canlı Çerçeve Animasyonu */
+        .code-card::before {
+            content: '';
+            position: absolute;
+            top: -3px; left: -3px; right: -3px; bottom: -3px;
+            background: linear-gradient(45deg, #ff0055, #00ffcc, #fffc00, #0066ff, #ff0055);
+            background-size: 400%;
+            z-index: -1;
+            border-radius: 18px;
+            animation: rgb-glow 8s linear infinite;
+        }
+
+        @keyframes rgb-glow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Kart İçeriği */
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .game-title {
+            font-size: 0.85rem;
+            color: #00ffcc;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .status-badge {
+            background: rgba(0, 255, 204, 0.15);
+            color: #00ffcc;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            border: 1px solid #00ffcc;
+        }
+
+        .code-box {
+            background: #080c14;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1.2rem;
+            color: #fffc00;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            word-break: break-all;
+        }
+
+        .reward-info {
+            font-size: 0.9rem;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+
+        .reward-info span {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Kopyala Butonu */
+        .copy-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #0066ff, #00ffcc);
+            color: #0b0f19;
+            border: none;
+            padding: 12px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: opacity 0.2s ease, transform 0.1s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .copy-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <section class="fc-codes-section">
+        <h2>FC Mobile Aktif Kodlar</h2>
+        <div class="codes-grid">
+            
+            <!-- Kod Kartı: 3RDANNIVERSARY -->
+            <div class="code-card">
+                <div class="code-header">
+                    <span class="game-title">EA SPORTS FC MOBILE</span>
+                    <span class="status-badge">AKTİF</span>
+                </div>
+                <div class="code-box">
+                    <span>3RDANNIVERSARY</span>
+                </div>
+                <div class="reward-info">
+                    Ödül: <span>Özel Yıldönümü Hediyeleri</span>
+                </div>
+                <button class="copy-btn" onclick="copyCode('3RDANNIVERSARY', this)">Kodu Kopyala</button>
+            </div>
+
+            <!-- Yeni kod eklemek istersen alttaki bloğu kopyalayıp çoğaltabilirsin -->
+
+        </div>
+    </section>
+
+    <script>
+        function copyCode(codeText, buttonElement) {
+            navigator.clipboard.writeText(codeText).then(() => {
+                const originalText = buttonElement.innerText;
+                buttonElement.innerText = "KOPYALANDI!";
+                buttonElement.style.background = "linear-gradient(135deg, #00ffcc, #00b386)";
+                
+                setTimeout(() => {
+                    buttonElement.innerText = originalText;
+                    buttonElement.style.background = "linear-gradient(135deg, #0066ff, #00ffcc)";
+                }, 2000);
+            }).catch(err => {
+                console.error('Kopyalama başarısız:', err);
+            });
+        }
+    </script>
+</body>
+</html>
